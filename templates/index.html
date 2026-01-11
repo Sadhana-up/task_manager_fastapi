@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Add New Task</h2>
+
+    <form action="/tasks/form" method="post">
+        <label>Title</label>
+        <input type="text" name="title" required>
+
+        <label>Description</label>
+        <textarea name="description"></textarea>
+
+        <button type="submit">Add Task</button>
+    </form>
+
+    <div class="task-list">
+        <h2>Your Tasks</h2>
+        <ul>
+            {% for task in tasks %}
+                <li>
+                    <strong>{{ task.title }}</strong><br>
+                    {{ task.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+</body>
+</html>
